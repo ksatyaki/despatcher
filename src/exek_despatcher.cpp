@@ -34,6 +34,7 @@ bool ExekDespatcher::despatch(const std::string& action_name, const std::string&
 
 	peiskmt_setMetaTuple(owner_id_, in_command_key.c_str(), peiskmt_peisid(), out_command_key.c_str());
 	peiskmt_setMetaTuple(owner_id_, in_param_key.c_str(), peiskmt_peisid(), out_param_key.c_str());
+	peiskmt_setRemoteStringTuple(owner_id_, out_state_key.c_str(), "IDLE");
 
 	std::cout << "DESPATCHING: " << action_name << " to Robot: " << component_name_ << std::endl;
 		
@@ -54,10 +55,14 @@ bool ExekDespatcher::despatch(const std::string& action_name, const std::string&
 	if(strcmp(stateTuple->data, "COMPLETED") == 0)
 	{
 		std::cout << "!!!SUCCESS!!!" << std::endl;
+		peiskmt_setStringTuple(out_command_key.c_str(), "OFF");
+		peiskmt_setRemoteStringTuple(owner_id_, out_state_key.c_str(), "IDLE");
 		return true;
 	}
 
 	std::cout << "$$$FAILED$$$" << std::endl;
+	peiskmt_setStringTuple(out_command_key.c_str(), "OFF");
+	peiskmt_setRemoteStringTuple(owner_id_, out_state_key.c_str(), "IDLE");
 	return false;
 		
 }
