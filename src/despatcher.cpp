@@ -3,7 +3,6 @@ extern "C"
 #include <peiskernel/peiskernel_mt.h>
 }
 
-#include <boost/function.hpp>
 #include <sstream>
 #include <iostream>
 #include <fstream>
@@ -41,6 +40,8 @@ int main(int argn, char* args[])
 	
 	std::fstream fileStream (args[1]);
 	peiskmt_initialize(&argn, args);
+
+	sleep(3);
 
 	if(fileStream.is_open())
 	{

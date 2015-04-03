@@ -1,18 +1,14 @@
 owner doro 999
-owner coro 998
-owner oro 997
-owner elevator 996
-owner ws 42
 
-doro moveto 1.2,3.4,4.2
-doro look water
-doro acquire water
-doro dock water
-doro pickup water
+doro moveto ibumetin
+doro look ibumetin
+doro acquire ibumetin
+doro dock ibumetin
+doro movehand joints,absolute,2.10,-1.39,0.00,1.05,-1.38,-3.62
+doro pickup ibumetin
 doro dock undock
-doro moveto 0.0,0.0
+doro moveto user1
 doro dock user1
 doro handover EXTEND
-ws notification_doro HANDOVER_MESSAGE
 doro handover WAIT
 
