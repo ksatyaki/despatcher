@@ -1,0 +1,10 @@
+owner coro 998
+owner elevator 996
+
+elevator moveto floor6
+coro moveto outside_elevator_floor6
+coro lift ENTER,floor6
+elevator moveto floor2
+coro loadmap FLOOR2
+coro lift EXIT,FLOOR2
+
