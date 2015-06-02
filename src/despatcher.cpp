@@ -13,7 +13,6 @@ extern "C"
 #include <exek_despatcher.h>
 #include <map>
 
-
 std::vector <std::string> splitStrings(const std::string& input_str)
 {
 	std::vector <std::string> strings;
@@ -62,6 +61,12 @@ int main(int argn, char* args[])
 			int owner = atof(all_parts[2].c_str());
 			all_despatchers[all_parts[1]] = new ExekDespatcher(owner, all_parts[1]);
 			all_despatchers[all_parts[1]]->show();
+		}
+		else if(line.find("sleep") != std::string::npos)
+		{
+			printf("\nSleeping now!");
+			sleep(atoi(all_parts[1].c_str()));
+			printf("\nWaking up...");
 		}
 		else if(all_parts.size() < 3)
 			continue;
